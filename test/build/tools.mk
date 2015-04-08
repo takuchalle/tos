@@ -7,4 +7,4 @@ CC = $(TOOL_PREFIX)gcc
 LD = $(TOOL_PREFIX)ld
 OBJCOPY = $(TOOL_PREFIX)objcopy
 OBJDUMP = $(TOOL_PREFIX)objdump
-RM = /bin/rm -fr
+RM = /bin/rm -r
