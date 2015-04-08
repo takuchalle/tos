@@ -2,7 +2,7 @@
 # Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
 #
 .S.o: 
-	$(CC) $(AFLAGS) $< -o $@ 
+	$(CC) -c $(AFLAGS) $< -o $@ 
 
 .c.o: 
-	$(CC) $(CFLAGS) $< -o $@ 
+	$(CC) -c $(CFLAGS) $< -o $@ 
