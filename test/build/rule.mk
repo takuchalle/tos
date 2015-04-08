@@ -1,8 +1,9 @@
 #
 # Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
 #
-.S.o: 
+.SUFFIXES:	.S .c .o
+%.o:%.S
 	$(CC) -c $(AFLAGS) $< -o $@ 
 
-.c.o: 
+%.o:%.c
 	$(CC) -c $(CFLAGS) $< -o $@ 
