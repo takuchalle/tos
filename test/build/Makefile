@@ -17,7 +17,7 @@ ASRCS = crt0.S
 
 OBJS = $(ASRCS:.S=.o)
 
-VPATH = $(TOPDIR)/bsp
+VPATH = $(TOPDIR)/bsp/$(TARGET_ENV)
 
 all: $(TARGET_BIN)
 
