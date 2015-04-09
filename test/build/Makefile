@@ -6,15 +6,31 @@ include tools.mk
 
 TOPDIR = ..
 
+#
+# Project Infomation
+#
 PROJECT=tos
 TARGET_BIN=$(TARGET).bin
 TARGET_ELF=$(TARGET).elf
 
+#
+# Optimize
+#
 OPT = -O2
+
+#
+# Assembler Compile Flags
+#
 AFLAGS = $(OPT) -Wall -nostdinc -fno-builtin
 
+#
+# Assembler Sources
+#
 ASRCS = crt0.S
 
+#
+# Object Files
+#
 OBJS = $(ASRCS:.S=.o)
 
 VPATH = $(TOPDIR)/bsp/$(TARGET_ENV)
