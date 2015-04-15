@@ -1,10 +1,11 @@
 #
 # Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
 #
-include config.mk
-include tools.mk
-
 TOPDIR = ..
+CONFIG_DIR = $(TOPDIR)/config
+
+include $(CONFIG_DIR)/config.mk
+include $(CONFIG_DIR)/tools.mk
 
 #
 # Project Infomation
@@ -46,4 +47,4 @@ $(TARGET_ELF): $(OBJS)
 clean:
 	$(RM) $(OBJS)
 
-include rule.mk
+include $(CONFIG_DIR)/rule.mk
