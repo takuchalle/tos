@@ -25,6 +25,11 @@ OPT = -O2
 AFLAGS = $(OPT) -Wall -nostdinc -fno-builtin
 
 #
+# C Language Compile Flags
+#
+CFLAGS = $(OPT) -Wall -nostdinc -fno-builtin -ansi -pedantic
+
+#
 # Assembler Sources
 #
 ASRCS = crt0.S
