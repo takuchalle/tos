@@ -16,7 +16,7 @@ TARGET_ELF=$(PROJECT).elf
 #
 # Optimize
 #
-OPT = -O2
+OPT = -O3
 
 #
 # Assembler Compile Flags
