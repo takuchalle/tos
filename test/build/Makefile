@@ -10,8 +10,8 @@ TOPDIR = ..
 # Project Infomation
 #
 PROJECT=tos
-TARGET_BIN=$(TARGET).bin
-TARGET_ELF=$(TARGET).elf
+TARGET_BIN=$(PROJECT).bin
+TARGET_ELF=$(PROJECT).elf
 
 #
 # Optimize
