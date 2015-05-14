@@ -4,7 +4,9 @@
 .SUFFIXES: .o .c .S
 
 .S.o:
+	@echo "#### compile : $(<F) ####"
 	$(CC) -c $(AFLAGS) $< -o $@ 
 
 .c.o:
+	@echo "#### compile : $(<F) ####"
 	$(CC) -c $(CFLAGS) $< -o $@ 
