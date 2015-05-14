@@ -1,8 +1,9 @@
 #
 # Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
 #
-TOPDIR = ..
-CONFIG_DIR = $(TOPDIR)/config
+TOPDIR = ../..
+TESTDIR = ../
+CONFIG_DIR = $(TESTDIR)/config
 
 include $(CONFIG_DIR)/config.mk
 include $(CONFIG_DIR)/tools.mk
@@ -27,7 +28,7 @@ AFLAGS = $(OPT) -Wall -nostdinc -fno-builtin
 #
 # C Language Compile Flags
 #
-CFLAGS = $(OPT) -Wall -nostdinc -fno-builtin -ansi -pedantic
+CFLAGS = $(OPT) -Wall -nostdinc -fno-builtin -ansi -pedantic $(INCLUDES)
 
 #
 # Assembler Sources
@@ -35,19 +36,27 @@ CFLAGS = $(OPT) -Wall -nostdinc -fno-builtin -ansi -pedantic
 ASRCS = crt0.S
 
 #
+# C Language Sources
+#
+KERNEL_CSRCS = start_kernel.c
+
+#
 # Object Files
 #
-OBJS = $(ASRCS:.S=.o)
+OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
+KERNEL_OBJS = $(KERNEL_CSRCS:.c=.o)
 
-VPATH = $(TOPDIR)/bsp/$(TARGET_ENV)
+VPATH = $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
 
 all: $(TARGET_BIN)
 
 $(TARGET_BIN): $(TARGET_ELF)
 
-$(TARGET_ELF): $(OBJS)
+$(TARGET_ELF): kernel $(OBJS)
 
-.PHONY: clean
+kernel : $(KERNEL_OBJS)
+
+.PHONY: clean kernel
 
 clean:
 	$(RM) $(OBJS)

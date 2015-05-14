@@ -3,3 +3,5 @@
 #
 
 TARGET_ENV = versatilepb_qemu
+
+INCLUDES = -I$(TOPDIR)/include
