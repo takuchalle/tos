@@ -23,12 +23,12 @@ OPT = -O3
 #
 # Assembler Compile Flags
 #
-AFLAGS = $(OPT) -Wall -nostdinc -fno-builtin
+AFLAGS = $(OPT) -Wall -fno-builtin
 
 #
 # C Language Compile Flags
 #
-CFLAGS = $(OPT) -Wall -nostdinc -fno-builtin -ansi -pedantic $(INCLUDES)
+CFLAGS = $(OPT) -Wall -fno-builtin -ansi -pedantic $(INCLUDES)
 
 #
 # Assembler Sources
