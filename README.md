@@ -1,9 +1,12 @@
+# tos
+---
+---
+
 [![Build Status](https://travis-ci.org/takuyaohashi/tos.svg?branch=master)](https://travis-ci.org/takuyaohashi/tos)
 
-# tos
 TAKUYA Operation System
 
-Make full scratch Operatin System for study
+Full-scratch Operatin System for study.
 
 # Development Environment 
 
