@@ -12,7 +12,7 @@ typedef enum _kernel_STATE {
 	_kernel_STATE_IDLE,
 	_kernel_STATE_FREE,
 	_kernel_STATE_READY,
-	_kernel_STATE_NUM,
+	_kernel_STATE_NUM
 } _kernel_STATE_t;
 
 typedef struct _kernel_TCB {
