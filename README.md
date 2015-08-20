@@ -1,5 +1,4 @@
 # tos
----
 
 [![Build Status](https://travis-ci.org/takuyaohashi/tos.svg?branch=master)](https://travis-ci.org/takuyaohashi/tos)
 
