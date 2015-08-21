@@ -1,5 +1,6 @@
 language: c
-sudo: required
-before_install:
-  - sudo apt-get install gcc-arm-linux-gnueabi
+addons:
+  apt:
+    packages:
+      - gcc-arm-linux-gnueabi
 script: make -C test/build
