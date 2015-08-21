@@ -11,7 +11,7 @@ include $(CONFIG_DIR)/tools.mk
 #
 # Project Infomation
 #
-PROJECT=tos
+PROJECT=tos_test
 TARGET_BIN=$(PROJECT).bin
 TARGET_ELF=$(PROJECT).elf
 
@@ -38,17 +38,18 @@ CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic $(INCLUDES)
 #
 # Assembler Sources
 #
-ASRCS = crt0.S
+TEST_ASRCS = crt0.S
 
 #
 # C Language Sources
 #
 KERNEL_CSRCS = start_kernel.c
+TEST_CSRCS = main.c
 
 #
 # Object Files
 #
-OBJS = $(ASRCS:.S=.o) $(CSRCS:.c=.o)
+OBJS = $(TEST_ASRCS:.S=.o) $(TEST_CSRCS:.c=.o)
 KERNEL_OBJS = $(KERNEL_CSRCS:.c=.o)
 
 #
@@ -56,7 +57,12 @@ KERNEL_OBJS = $(KERNEL_CSRCS:.c=.o)
 #
 DEPENDS = $(OBJS:.o=.d) $(KERNEL_OBJS:.o=.d)
 
-VPATH = $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
+VPATH = $(TESTDIR)/src $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
+
+#
+# Make Rules
+#
+.PHONY: clean kernel
 
 all: $(TARGET_BIN)
 
@@ -65,8 +71,6 @@ $(TARGET_BIN): $(TARGET_ELF)
 $(TARGET_ELF): kernel $(OBJS)
 
 kernel : $(KERNEL_OBJS)
-
-.PHONY: clean kernel
 
 clean:
 	-$(RM) $(OBJS)
