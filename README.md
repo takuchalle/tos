@@ -4,12 +4,13 @@
 
 TAKUYA Operation System
 
-Full-scratch Operatin System for study.
+## Description
 
-# Target Architecture
+Full-scratch Operatin System for study purpose.
+
+## Target Architecture
 * ARM 
 
-# Development Environment 
-
+## Development Environment 
 * Compiler : arm-linux-gnueabi-gcc (Ubuntu/Linaro 4.7.3-12ubuntu1) 4.7.3
 * QEMU : version 2.0.0
