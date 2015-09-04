@@ -1,8 +1,9 @@
-sudo: false
+sudo: required
 language: c
 addons:
   apt:
     packages:
-        - gcc-4.9-arm-linux-gnueabi
         - libnewlib-arm-none-eabi	
+before_install:
+  - sudo apt-get install gcc-arm-linux-gnueabi
 script: make -C test/build
