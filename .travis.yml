@@ -3,6 +3,6 @@ language: c
 addons:
   apt:
     packages:
-        - gcc-arm-linux-gnueabi
+        - gcc-4.9-arm-linux-gnueabi
         - libnewlib-arm-none-eabi	
 script: make -C test/build
