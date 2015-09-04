@@ -1,8 +1,8 @@
+sudo: false
 language: c
-sudo: required
 addons:
   apt:
     packages:
-	- gcc-arm-linux-gnueabi
-	- libnewlib-arm-none-eabi	
+        - gcc-arm-linux-gnueabi
+        - libnewlib-arm-none-eabi	
 script: make -C test/build
