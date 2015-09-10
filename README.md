@@ -14,4 +14,5 @@ Full-scratch Operatin System for study purpose.
 
 ## Development Environment 
 * Compiler : arm-linux-gnueabi-gcc (Ubuntu/Linaro 4.7.3-12ubuntu1) 4.7.3
+* Standard Library : libnewlib-arm-none-eabi
 * QEMU : version 2.0.0
