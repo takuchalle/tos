@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
         - libnewlib-arm-none-eabi	
-before_install:
-  - sudo apt-get install gcc-arm-linux-gnueabi
+install:
+  - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2014-q4-major/+download/gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
+    - tar -xf gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
 script: make -C test/build
