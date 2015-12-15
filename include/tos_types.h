@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
  */
-#ifndef TOS_TYPES_H_INCLUDED
-#define TOS_TYPES_H_INCLUDED
+#ifndef __TOS_TYPES__H_INCLUDED__
+#define __TOS_TYPES__H_INCLUDED__
 
 #include <stdint.h>
 
-#endif /* TOS_TYPES_H_INCLUDED */
+#endif /* __TOS_TYPES__H_INCLUDED__ */

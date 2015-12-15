@@ -1,8 +1,8 @@
 /*
  * Copyright (c) 2015, TAKUYA Ohashi. All rights reserved.
  */
-#ifndef KERNEL_H_INCLUDED
-#define KERNEL_H_INCLUDED
+#ifndef __KERNEL__H_INCLUDED__
+#define __KERNEL__H_INCLUDED__
 
 #include "tos_types.h"
 
@@ -19,4 +19,4 @@ typedef struct _kernel_TCB {
 	_kernel_STATE_t state;
 } _kernel_TCB_t;
 
-#endif /* KERNEL_H_INCLUDED */
+#endif /* __KERNEL__H_INCLUDED__ */
