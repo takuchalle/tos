@@ -62,7 +62,7 @@ VPATH = $(TESTDIR)/src $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
 #
 # Make Rules
 #
-.PHONY: clean kernel
+.PHONY: all clean kernel
 
 all: $(TARGET_BIN)
 
