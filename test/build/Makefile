@@ -14,6 +14,7 @@ include $(CONFIG_DIR)/tools.mk
 PROJECT=tos_test
 TARGET_BIN=$(PROJECT).bin
 TARGET_ELF=$(PROJECT).elf
+TARGET_MAP=$(PROJECT).map
 
 #
 # Optimize
@@ -34,6 +35,12 @@ AFLAGS = $(OPT) $(FLAGS)
 # C Language Compile Flags
 #
 CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic $(INCLUDES)
+
+#
+# Link Flags
+#
+LDSCRIPT = ../bsp/$(TARGET_ENV)/link.ld
+LDFLAGS = -T $(LDSCRIPT)
 
 #
 # Assembler Sources
@@ -69,6 +76,7 @@ all: $(TARGET_BIN)
 $(TARGET_BIN): $(TARGET_ELF)
 
 $(TARGET_ELF): kernel $(OBJS)
+#	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
 
 kernel : $(KERNEL_OBJS)
 
