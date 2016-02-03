@@ -1,0 +1,11 @@
+OUTPUT_FORMAT("elf32-littlearm")
+OUTPUT_ARCH(arm)
+ENTRY(_start)
+MEMORY
+{
+	RAM(wxai) : ORIGIN = 0x10000000, LENGTH = 0x8000
+}
+SECTIONS
+{
+	
+}
