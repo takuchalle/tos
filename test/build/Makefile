@@ -78,5 +78,6 @@ clean:
 	-$(RM) $(DEPENDS)
 
 include $(CONFIG_DIR)/rule.mk
-
+ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
 sinclude $(DEPENDS)
+endif
