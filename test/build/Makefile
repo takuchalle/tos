@@ -51,7 +51,7 @@ TEST_ASRCS = crt0.S
 # C Language Sources
 #
 KERNEL_CSRCS = start_kernel.c
-TEST_CSRCS = main.c
+TEST_CSRCS = main.c vector.o
 
 #
 # Object Files
