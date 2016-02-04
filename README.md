@@ -10,7 +10,7 @@ TAKUYA Operation System
 Full-scratch Operatin System for study purpose.
 
 ## Target Architecture
-* ARM 
+* ARM v6-M(Cortex-M0/M0P)
 
 ## Development Environment 
 * Compiler : arm-linux-gnueabi-gcc (Ubuntu/Linaro 4.7.3-12ubuntu1) 4.7.3
