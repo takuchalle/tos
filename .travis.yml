@@ -1,10 +1,7 @@
 sudo: required
 language: c
-addons:
-  apt:
-    sources:
-      - debian-sid
-    packages:
-      - gcc-arm-none-eabi
+before_install:
+    - sudo apt-get update
+    - sudo apt-get install -qq gcc-arm-none-eabi
 before_script: gcc-arm-none-eabi --version
 script: make -C test/build
