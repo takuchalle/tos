@@ -4,8 +4,8 @@
 
 	.text
 	.balign 4
-	.global Reset_Handler
-	.type Reset_Handler, %function
+	.global _Reset_Handler
+	.type _Reset_Handler, %function
 	.global _start
 	.type _start, %function
 	
@@ -24,7 +24,7 @@ _clear_bss:
 	strne 	r3,[r1],#+4
 	bne 	_clear_bss
 
-	bl _main
+//	bl _main
 	
 	// Infinit Loop
 	b	.
