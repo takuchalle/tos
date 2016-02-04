@@ -40,7 +40,7 @@ CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic $(INCLUDES)
 # Link Flags
 #
 LDSCRIPT = ../bsp/$(TARGET_ENV)/link.ld
-LDFLAGS = -T $(LDSCRIPT)
+LDFLAGS = -T $(LDSCRIPT) -Map $(TARGET_MAP)
 
 #
 # Assembler Sources
