@@ -76,7 +76,7 @@ all: $(TARGET_BIN)
 $(TARGET_BIN): $(TARGET_ELF)
 
 $(TARGET_ELF): kernel $(OBJS)
-#	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
+	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
 
 kernel : $(KERNEL_OBJS)
 
@@ -86,6 +86,7 @@ clean:
 	-$(RM) $(DEPENDS)
 
 include $(CONFIG_DIR)/rule.mk
+
 ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
 sinclude $(DEPENDS)
 endif
