@@ -1,4 +1,10 @@
 sudo: false
+
+addons:
+  apt:
+    packages:
+      - build-essential
+
 language: c
 compiler: clang
 before_install:
@@ -8,3 +14,5 @@ install:
 before_script:
   - arm-none-eabi-gcc --version
 script: make -C test/build
+
+cache: apt
