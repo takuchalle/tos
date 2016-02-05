@@ -1,8 +1,17 @@
-sudo: required
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - gcc-arm-none-eabi
+      - libstdc++-arm-none-eabi-newlib
+      
 language: c
-install:
-    - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2014-q4-major/+download/gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
-    - tar -xf gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2 && export PATH=`pwd`/gcc-arm-none-eabi-4_9-2014q4/bin:$PATH
+compiler: clang
 before_script:
-    - gcc-arm-none-eabi --version
+  - arm-none-eabi-gcc --version
 script: make -C test/build
+
+cache: apt
