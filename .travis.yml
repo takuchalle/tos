@@ -3,6 +3,7 @@ language: c
 install:
     - wget https://launchpad.net/gcc-arm-embedded/4.9/4.9-2014-q4-major/+download/gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2
     - tar -xf gcc-arm-none-eabi-4_9-2014q4-20141203-linux.tar.bz2 && export PATH=`pwd`/gcc-arm-none-eabi-4_9-2014q4/bin:$PATH
+    - echo $PATH
 before_script:
     - gcc-arm-none-eabi --version
 script: make -C test/build
