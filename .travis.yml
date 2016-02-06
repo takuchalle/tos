@@ -1,8 +1,17 @@
-sudo: required
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - gcc-arm-none-eabi
+      - libstdc++-arm-none-eabi-newlib
+      
 language: c
-install:
-  - sudo add-apt-repository -y ppa:terry.guo/gcc-arm-embedded
-  - sudo apt-get update
-  - sudo apt-get install gcc-arm-none-eabi
-  - arm-none-eabi-gcc --version ;
+compiler: clang
+before_script:
+  - arm-none-eabi-gcc --version
 script: make -C test/build
+
+cache: apt

@@ -40,7 +40,7 @@ CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic $(INCLUDES)
 # Link Flags
 #
 LDSCRIPT = ../bsp/$(TARGET_ENV)/link.ld
-LDFLAGS = -T $(LDSCRIPT)
+LDFLAGS = -T $(LDSCRIPT) -Map $(TARGET_MAP)
 
 #
 # Assembler Sources
@@ -51,7 +51,7 @@ TEST_ASRCS = crt0.S
 # C Language Sources
 #
 KERNEL_CSRCS = start_kernel.c
-TEST_CSRCS = main.c
+TEST_CSRCS = main.c vector.o
 
 #
 # Object Files
@@ -76,7 +76,7 @@ all: $(TARGET_BIN)
 $(TARGET_BIN): $(TARGET_ELF)
 
 $(TARGET_ELF): kernel $(OBJS)
-#	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
+	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
 
 kernel : $(KERNEL_OBJS)
 
@@ -87,4 +87,6 @@ clean:
 
 include $(CONFIG_DIR)/rule.mk
 
+ifneq ($(findstring clean,$(MAKECMDGOALS)),clean)
 sinclude $(DEPENDS)
+endif
