@@ -75,11 +75,9 @@ all: $(TARGET_BIN)
 
 $(TARGET_BIN): $(TARGET_ELF)
 
-$(TARGET_ELF): kernel $(OBJS)
+$(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	@echo "#### link : $(@) ####"
 	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
-
-kernel : $(KERNEL_OBJS)
 
 clean:
 	-$(RM) $(OBJS)
