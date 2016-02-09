@@ -3,6 +3,7 @@
 *.ko
 *.obj
 *.elf
+*.map
 
 # Depend files
 *.d
