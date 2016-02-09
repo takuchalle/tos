@@ -80,6 +80,7 @@ $(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
 
 clean:
+	-$(RM) $(TARGET_ELF) $(TARGET_MAP) $(TARGET_BIN)
 	-$(RM) $(OBJS)
 	-$(RM) $(KERNEL_OBJS)
 	-$(RM) $(DEPENDS)
