@@ -4,4 +4,6 @@
 
 TARGET_ENV = lpc4357
 
+include ../bsp/$(TARGET_ENV)/config.mk
+
 INCLUDES = -I$(TOPDIR)/include
