@@ -74,6 +74,7 @@ VPATH = $(TESTDIR)/src $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
 all: $(TARGET_BIN)
 
 $(TARGET_BIN): $(TARGET_ELF)
+	$(OBJCOPY) -O binary $< $@
 
 $(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	@echo "#### link : $(@) ####"
