@@ -4,6 +4,8 @@
 *.obj
 *.elf
 *.map
+*.bin
+*.das
 
 # Depend files
 *.d
