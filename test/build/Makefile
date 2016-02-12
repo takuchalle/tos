@@ -24,7 +24,7 @@ OPT = -O3
 #
 # 
 #
-FLAGS = -Wall -fno-builtin -MD
+FLAGS = -Wall -fno-builtin -MD -g -gdwarf-3
 
 #
 # Assembler Compile Flags
