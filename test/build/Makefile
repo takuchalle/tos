@@ -15,6 +15,7 @@ PROJECT=tos_test
 TARGET_BIN=$(PROJECT).bin
 TARGET_ELF=$(PROJECT).elf
 TARGET_MAP=$(PROJECT).map
+TARGET_DAS=$(PROJECT).das
 
 #
 # Optimize
@@ -79,6 +80,7 @@ $(TARGET_BIN): $(TARGET_ELF)
 $(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	@echo "#### link : $(@) ####"
 	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
+	$(OBJDUMP) -EL --disassemble-all --demangle --full-contents $@ > $(TARGET_DAS)
 
 clean:
 	-$(RM) $(TARGET_ELF) $(TARGET_MAP) $(TARGET_BIN)
