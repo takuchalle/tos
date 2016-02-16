@@ -70,7 +70,7 @@ VPATH = $(TESTDIR)/src $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
 #
 # Make Rules
 #
-.PHONY: all clean
+.PHONY: all clean check
 
 all: $(TARGET_BIN)
 
@@ -87,6 +87,9 @@ clean:
 	-$(RM) $(OBJS)
 	-$(RM) $(KERNEL_OBJS)
 	-$(RM) $(DEPENDS)
+
+check:
+	$(CHECKER) $(INCLUDES) --error-exitcode=1 --enable=all $(TESTDIR)/src $(TOPDIR)/kernel
 
 include $(CONFIG_DIR)/rule.mk
 
