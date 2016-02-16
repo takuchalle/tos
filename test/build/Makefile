@@ -83,7 +83,7 @@ $(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	$(OBJDUMP) -EL --disassemble-all --demangle --full-contents $@ > $(TARGET_DAS)
 
 clean:
-	-$(RM) $(TARGET_ELF) $(TARGET_MAP) $(TARGET_BIN)
+	-$(RM) $(TARGET_ELF) $(TARGET_MAP) $(TARGET_BIN) $(TARGET_DAS)
 	-$(RM) $(OBJS)
 	-$(RM) $(KERNEL_OBJS)
 	-$(RM) $(DEPENDS)
