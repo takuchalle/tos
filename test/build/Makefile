@@ -15,6 +15,7 @@ PROJECT=tos_test
 TARGET_BIN=$(PROJECT).bin
 TARGET_ELF=$(PROJECT).elf
 TARGET_MAP=$(PROJECT).map
+TARGET_DAS=$(PROJECT).das
 
 #
 # Optimize
@@ -24,7 +25,7 @@ OPT = -O3
 #
 # 
 #
-FLAGS = -Wall -fno-builtin -MD
+FLAGS = -Wall -fno-builtin -nostdlib -MD -g -gdwarf-3 -mthumb
 
 #
 # Assembler Compile Flags
@@ -34,13 +35,13 @@ AFLAGS = $(OPT) $(FLAGS)
 #
 # C Language Compile Flags
 #
-CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic $(INCLUDES)
+CFLAGS = $(OPT) $(FLAGS) -std=c11 -ansi -pedantic $(INCLUDES)
 
 #
 # Link Flags
 #
 LDSCRIPT = ../bsp/$(TARGET_ENV)/link.ld
-LDFLAGS = -T $(LDSCRIPT) -Map $(TARGET_MAP)
+LDFLAGS = -T $(LDSCRIPT) -Map $(TARGET_MAP) -static -Ttext=$(START_ADDR)
 
 #
 # Assembler Sources
@@ -69,20 +70,26 @@ VPATH = $(TESTDIR)/src $(TESTDIR)/bsp/$(TARGET_ENV) $(TOPDIR)/kernel
 #
 # Make Rules
 #
-.PHONY: all clean
+.PHONY: all clean check
 
 all: $(TARGET_BIN)
 
 $(TARGET_BIN): $(TARGET_ELF)
+	$(OBJCOPY) -O binary $< $@
 
 $(TARGET_ELF): $(KERNEL_OBJS) $(OBJS)
 	@echo "#### link : $(@) ####"
 	$(LD) $(LDFLAGS) -o $(TARGET_ELF) $(KERNEL_OBJS) $(OBJS)
+	$(OBJDUMP) -EL --disassemble-all --demangle --full-contents $@ > $(TARGET_DAS)
 
 clean:
+	-$(RM) $(TARGET_ELF) $(TARGET_MAP) $(TARGET_BIN) $(TARGET_DAS)
 	-$(RM) $(OBJS)
 	-$(RM) $(KERNEL_OBJS)
 	-$(RM) $(DEPENDS)
+
+check:
+	$(CHECKER) $(INCLUDES) --error-exitcode=1 --enable=all $(TESTDIR)/src $(TOPDIR)/kernel
 
 include $(CONFIG_DIR)/rule.mk
 
