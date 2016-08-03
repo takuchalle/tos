@@ -35,7 +35,7 @@ AFLAGS = $(OPT) $(FLAGS)
 #
 # C Language Compile Flags
 #
-CFLAGS = $(OPT) $(FLAGS) -std=c99 -ansi -pedantic-errors $(INCLUDES)
+CFLAGS = $(OPT) $(FLAGS) -std=c99 -pedantic-errors $(INCLUDES)
 
 #
 # Link Flags
