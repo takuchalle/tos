@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/takuyaohashi/tos.svg?branch=master)](https://travis-ci.org/takuyaohashi/tos)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://ruedap.mit-license.org/2015)
+[![Twitter](https://img.shields.io/badge/Twitter-@takuyachallenge-blue.svg?style=flat)](http://twitter.com/takuyachallenge)
 
 tos means TAKUYA Operation System.
 
